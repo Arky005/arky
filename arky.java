@@ -137,7 +137,15 @@ class arky
             Files.delete(a);
          } catch(Exception e) { println("ERRO: "+ e.getMessage()); }
       }
-      
+      /*
+         Metodo para abrir um arquivo ou programa.
+      */
+      public static void open(String file)
+      {
+         try{
+           java.awt.Desktop.getDesktop().open( new File( file ) );
+         } catch(Exception e) { arky.println("ERRO: "+e.getMessage()); }
+      }
    
    }//classe files
    
@@ -172,11 +180,20 @@ class arky
       /*
          Ordena um array pelo metodo de insercao.
       */
-     /* public static int[] insercao(int[]v)
+      public static int[] insercao(int[]v)
       {
+         int[] novo= new int[v.length];
          
-      
-      }*/
+         if(novo.length>0)
+         {
+            
+         
+         
+         }
+         
+         
+         return novo;
+      }
       /*
          Metodo para mostrar os itens de um array de inteiros.
       */
