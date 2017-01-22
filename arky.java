@@ -16,8 +16,10 @@ class arky
       private int key=0;
       /*
          Construtor de um encriptador, que seta a chave de acordo com uma formula.
+         (65+82+75)/89==2
+           A  R  K  Y
       */
-      public encrypter(){ while(this.key==0)this.key=(int)(Double.parseDouble(datetime("ss"))/1.4); }
+      public encrypter(){ while(this.key==0)this.key=((int)'A'+(int)'R'+(int)'K')/(int)'Y'; }
       /*
          Metodo que encripta determinado texto de acordo com a chave.
       */

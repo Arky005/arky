@@ -146,14 +146,10 @@ public class estudo
      
      
       arky ark=new arky();
-      arky.encrypter encrypt =ark.new encrypter();
-      
-      encrypt.create(arky.files.read("C:/Users/otavi/Desktop/jhfguy.txt"));
-      arky.files.write("C:/Users/otavi/Desktop/new.txt", encrypt.get(), false);
-      arky.println(encrypt.undo(arky.files.read("C:/Users/otavi/Desktop/new.txt")));
-           
-            
-      
+      arky.encrypter encrypt=ark.new encrypter();
+      arky.println(encrypt.undo("MrﬂtgmKmp_gq"));
+      arky.println(""+encrypt.getkey());
+   
       arky.pause();
    
    }
