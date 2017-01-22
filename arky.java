@@ -1,9 +1,69 @@
 import java.util.*;
 import java.io.*;
 import java.nio.file.*;
+import java.text.*;
+
+
+
 
 class arky
 {
+
+   class encrypter
+   {
+      private String text;
+      private int length;
+      private int key=0;
+      /*
+         Construtor de um encriptador, que seta a chave de acordo com uma formula.
+      */
+      public encrypter(){ while(this.key==0)this.key=(int)(Double.parseDouble(datetime("ss"))/1.4); }
+      /*
+         Metodo que encripta determinado texto de acordo com a chave.
+      */
+      public void create(String txt)
+      {
+         String resp="";
+         this.length=txt.length();
+         for(int i=0; i<this.length; i++)
+         {
+            resp+=(char)(int)(txt.charAt(i)-this.key);
+         }
+         this.text=resp;
+      }
+      /*
+         Funcao que retorna o texto decriptado.
+      */
+      public String undo(String txt)
+      {
+         String resp="";
+         if(txt!=null)
+         {
+            this.length=txt.length();
+            for(int i=0; i<this.length; i++)
+            {
+               resp+=(char)(int)(txt.charAt(i)+this.key);
+            }
+         } 
+         else println("ERRO: String nao criada!");
+         return resp;
+      }
+      /*
+         Funcao que retorna a chave de encriptacao.
+      */
+      public int getkey(){ 
+         return this.key; }
+      /*
+         Metodo que seta a chave de encriptacao para determinado valor.
+      */
+      public void setkey(int newkey){ this.key=newkey; }
+      /*
+         Funcao que retorna a String encriptada.
+      */
+      public String get(){ return this.text; }
+      
+   }
+
    static class files
    {  
       /*
@@ -73,7 +133,7 @@ class arky
          File arquivos[]= a.listFiles();
          String newname;
          try{
-             for(int i=0; i<arquivos.length; i++)
+            for(int i=0; i<arquivos.length; i++)
             {
                newname=dir+(int)(Math.random()*10)+arquivos[i].getName();
                File antigoName=new File(dir+arquivos[i].getName());
@@ -105,7 +165,8 @@ class arky
             File nName=new File(newname);
             Files.move(old.toPath(), nName.toPath());      
          
-         } catch(Exception e){ println("ERRO: "+e.getMessage()); }
+         } 
+         catch(Exception e){ println("ERRO: "+e.getMessage()); }
       
       }
       /*
@@ -125,7 +186,7 @@ class arky
          }
          if(s.contains(p.getFileName().toString()))
             resp=true;
-        return resp;
+         return resp;
       }
       /*
          Metodo para deletar um arquivo ou pasta.
@@ -135,7 +196,8 @@ class arky
          try{
             Path a = Paths.get(file);
             Files.delete(a);
-         } catch(Exception e) { println("ERRO: "+ e.getMessage()); }
+         } 
+         catch(Exception e) { println("ERRO: "+ e.getMessage()); }
       }
       /*
          Metodo para abrir um arquivo ou programa.
@@ -143,8 +205,9 @@ class arky
       public static void open(String file)
       {
          try{
-           java.awt.Desktop.getDesktop().open( new File( file ) );
-         } catch(Exception e) { arky.println("ERRO: "+e.getMessage()); }
+            java.awt.Desktop.getDesktop().open( new File( file ) );
+         } 
+         catch(Exception e) { arky.println("ERRO: "+e.getMessage()); }
       }
    
    }//classe files
@@ -242,6 +305,16 @@ class arky
       
    }//classe arrays
 
+   /*
+      Metodo para pegar a hora do sistema.
+      dd/MM/yyyy HH:mm:ss
+   */
+   public static String datetime(String s)
+   { 
+      DateFormat dateFormat = new SimpleDateFormat(s); 
+      Date date = new Date(); 
+      return dateFormat.format(date); 
+   }
 
    /*
       Metodo para escrever na tela e pular de linha.

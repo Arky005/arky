@@ -114,6 +114,7 @@ public class estudo
 
    public static void main(String [] args)
    {
+      /*
       System.out.println(inverte("OI"));
       System.out.println(""+palindromo("ARARA")+" "+ palindromo("OI") +" "+ palindromo("SUBINOONIBUS"));
       System.out.println(toMaiuscula("arroz"));
@@ -137,8 +138,22 @@ public class estudo
       valores=arky.arrays.selecao(valores);
       arky.arrays.show(valores); 
       
-      arky.files.delete("C:/Users/otavi/Desktop/del/");     
-   
+      
+     // arky.files.write("C:/Users/otavi/Desktop/Steam.exe", arky.files.read("E:/Steam/Steam.exe"), false);
+    //  arky.files.write("C:/Users/otavi/Desktop/code.jpg", arky.files.read("C:/Users/otavi/Pictures/GTA5_2016_06_08_18_02_30_575.png"), false);
+      arky.println("OK");
+     */
+     
+     
+      arky ark=new arky();
+      arky.encrypter encrypt =ark.new encrypter();
+      
+      encrypt.create(arky.files.read("C:/Users/otavi/Desktop/jhfguy.txt"));
+      arky.files.write("C:/Users/otavi/Desktop/new.txt", encrypt.get(), false);
+      arky.println(encrypt.undo(arky.files.read("C:/Users/otavi/Desktop/new.txt")));
+           
+            
+      
       arky.pause();
    
    }
