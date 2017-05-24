@@ -1,6 +1,6 @@
 /**
 * arky class
-* @author Otavio Morais aka Arky005
+* @author Otavio Morais
 * @version 0.2
 */
 
