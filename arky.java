@@ -179,7 +179,7 @@ class arky
 		* @param  y  y position
 		* @param  width  progress bar's width
 		* @param  height  progress bar's height
-      * @return  the generated progress bar
+      		* @return  the generated progress bar
 		*/
 		public JProgressBar addProgressBar(int value, int x, int y, int width, int height)
 		{
